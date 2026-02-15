@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoiseraX - Behavioral Obfuscation</title>
+    <meta name="description"
+        content="Protect your privacy by generating realistic background browsing activity to confuse tracking algorithms.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"></div>
+                <span>NoiseraX</span>
+            </a>
+            <div class="nav-links">
+                <a href="#solution">How it Works</a>
+                <a href="#safety">Safety</a>
+                <a href="#contact">Contact</a>
+                <a href="https://github.com" class="btn btn-sm">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="fade-in">NoiseraX</h1>
+                <p class="lead fade-in delay-1">Behavioral obfuscation against digital profiling.</p>
+                <div class="cta-group fade-in delay-3">
+                    <a href="https://github.com" class="btn btn-primary">Source Code</a>
+                    <a href="#solution" class="btn btn-secondary">Learn More</a>
+                </div>
+                <div class="trust-badges fade-in delay-4">
+                    <span><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                            fill="none">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg> Client-Side</span>
+                    <span><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                            fill="none">
+                            <path d="M20 6L9 17l-5-5" />
+                        </svg> Open Source</span>
+                    <span><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                            fill="none">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 6v6l4 2" />
+                        </svg> Background Process</span>
+                </div>
+            </div>
+            <div class="hero-visual fade-in delay-2">
+                <!-- Abstract Signal/Noise Visualization -->
+                <div class="noise-visual">
+                    <div class="signal-line"></div>
+                    <div class="signal-line"></div>
+                    <div class="signal-line"></div>
+                    <div class="chaff-particles"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="problem" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>They Are Watching.</h2>
+                <p>How behavioral data tracking threatens privacy.</p>
+            </div>
+            <div class="grid-3 card-grid">
+                <div class="glass-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                    </div>
+                    <h3>Profiling</h3>
+                    <p>Trackers infer personality and traits from browsing patterns.</p>
+                </div>
+                <div class="glass-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="m22 2-5 5" />
+                            <path d="m2 22 5-5" />
+                            <path d="m2 2 5 5" />
+                            <path d="m22 22-5-5" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                    </div>
+                    <h3>Targeting</h3>
+                    <p>Algorithms use profiles to predict and manipulate user behavior.</p>
+                </div>
+                <div class="glass-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                    </div>
+                    <h3>Blocking</h3>
+                    <p>Standard tools hide IPs or ads but fail to stop behavioral analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution" class="section bg-darker">
+        <div class="container">
+            <div class="grid-3 card-grid">
+                <div class="glass-card step-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <div class="step-number">01</div>
+                    <h3>Idle Execution</h3>
+                    <p>Detects when you are away from the keyboard. No interference with your work.</p>
+                </div>
+                <div class="glass-card step-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
+                            <path
+                                d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" />
+                            <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" />
+                            <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" />
+                            <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" />
+                            <path d="M3.477 10.896a4 4 0 0 1 .585-.396" />
+                            <path d="M19.938 10.5a4 4 0 0 1 .585.396" />
+                            <path d="M6 18a4 4 0 0 1-1.97-3.284" />
+                            <path d="M17.97 14.716A4 4 0 0 1 16 18" />
+                        </svg>
+                    </div>
+                    <div class="step-number">02</div>
+                    <h3>Persona Engine</h3>
+                    <p>Simulates evolving interests. Browsing history that looks human, not random.</p>
+                </div>
+                <div class="glass-card step-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <div class="step-number">03</div>
+                    <h3>Local Sandbox</h3>
+                    <p>Everything stays on your device. Zero data leakage to cloud servers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="safety" class="section">
+        <div class="container center-text">
+            <h2>Ethical & Safe.</h2>
+            <p class="max-w-600">Built for protection, not disruption.</p>
+            <div class="grid-3 card-grid">
+                <div class="glass-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="m4.93 4.93 14.14 14.14" />
+                        </svg>
+                    </div>
+                    <h3>No Fraud</h3>
+                    <p>Strictly avoids ad clicks and paywall bypasses. Ethical interaction only.</p>
+                </div>
+                <div class="glass-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 8V4H8" />
+                            <rect width="16" height="12" x="4" y="8" rx="2" />
+                            <path d="M2 14h2" />
+                            <path d="M20 14h2" />
+                            <path d="M15 13v2" />
+                            <path d="M9 13v2" />
+                        </svg>
+                    </div>
+                    <h3>No Botnet</h3>
+                    <p>Independent client-side operation. No central command and control server.</p>
+                </div>
+                <div class="glass-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <path d="M9 15h6" />
+                        </svg>
+                    </div>
+                    <h3>No Scraping</h3>
+                    <p>Respects `robots.txt` and server load guidelines. Good citizenship by design.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section bg-darker">
+        <div class="container center-text">
+            <h2>Contact Us</h2>
+            <p class="max-w-600">Have questions or feedback? Send a message directly.</p>
+            <form id="contactForm" action="https://formsubmit.co/rajghorpade231@gmail.com" method="POST"
+                class="contact-form glass-card">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Your inquiry..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+            </form>
+            <div id="form-success-message"
+                style="display: none; padding: 2rem; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--accent-green); border-radius: 8px; margin-top: 2rem;">
+                <h3 style="color: var(--accent-green); margin-bottom: 0.5rem;">Message Sent!</h3>
+                <p>Thanks for contacting us, will reply shortly.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="glass-card"
+                style="align-items: center; text-align: center; background: linear-gradient(135deg, rgba(30,58,138,0.5) 0%, rgba(15,23,42,0.8) 100%);">
+                <h2>View Documentation.</h2>
+                <p style="margin-bottom: 2rem;">Explore the implementation details and contribute to the research.</p>
+                <div class="cta-group" style="justify-content: center;">
+                    <a href="https://github.com" class="btn btn-primary btn-lg">GitHub Repository</a>
+                    <a href="#contact" class="btn btn-secondary btn-lg">Contact Dev</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h5>NoiseraX</h5>
+                <p>Privacy through obscurity.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Links</h5>
+                <a href="#">Source Code</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
