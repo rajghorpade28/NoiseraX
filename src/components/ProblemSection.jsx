@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Eye, Clock, MousePointer, Navigation, Target, TrendingUp, AlertTriangle, Fingerprint, Search, ShieldAlert } from 'lucide-react';
+import { Fingerprint, Eye, Database, ShieldAlert, Clock, MousePointer, Navigation } from 'lucide-react';
 
 const ProblemSection = () => {
   const trackingMethods = [
@@ -27,40 +27,36 @@ const ProblemSection = () => {
 
   return (
     <section className="py-32 px-4 sm:px-6 lg:px-8 bg-onyx relative overflow-hidden" id="problem">
-      {/* Background Effect */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_30%,rgba(220,38,38,0.1),transparent_50%)]" />
-      </div>
-
+      <div className="absolute inset-0 z-0 grid-blueprint opacity-10 pointer-events-none" />
+      
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row gap-12 md:items-end mb-24 border-b border-white/5 pb-16">
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          
+          {/* Narrative Content */}
           <motion.div
-            className="flex-1"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            className="lg:col-span-12 mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center gap-4 mb-8">
-               <ShieldAlert className="w-6 h-6 text-red-500" />
-               <span className="text-xs font-bold uppercase tracking-[0.4em] text-red-500">The Modern Crisis</span>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-px bg-red-500/50" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-red-500">The Identification Crisis</span>
             </div>
-            <h2 className="text-5xl md:text-8xl font-bold text-white leading-tight tracking-tighter">
-              YOU ARE THE <br /> <span className="italic font-serif text-red-500/80">PRODUCT.</span>
+            <h2 className="text-6xl md:text-8xl font-bold text-white mb-10 leading-tight">
+              Behavioral <br /> <span className="italic font-serif text-gradient-gold">Subjugation.</span>
             </h2>
-          </motion.div>
-          
-          <motion.div
-            className="md:w-1/3"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-xl text-slate-500 leading-relaxed font-light">
-              Beyond cookies and trackers lies a deeper surveillance. Modern algorithms don't just see what you do—they understand who you are.
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-xl text-slate-400 max-w-3xl font-light leading-relaxed">
+                Modern surveillance doesn't just watch you; it predicts you. Every scroll, every hover, and every pause is harvested to construct a mathematical cage of your identity.
+              </p>
+            </motion.div>
           </motion.div>
         </div>
 
@@ -79,8 +75,8 @@ const ProblemSection = () => {
                 <div className="text-red-500/30 group-hover:text-red-500 transition-colors mb-8">
                    <method.icon className="w-10 h-10" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-6 uppercase tracking-widest">{method.title}</h3>
-                <p className="text-slate-500 group-hover:text-slate-300 transition-colors leading-relaxed font-light">
+                <h3 className="text-2xl font-bold text-white mb-6 uppercase tracking-widest leading-tight">{method.title}</h3>
+                <p className="text-slate-500 group-hover:text-slate-300 transition-colors leading-relaxed font-light text-sm">
                   {method.description}
                 </p>
                 <div className="mt-8 pt-8 border-t border-white/5 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -98,7 +94,7 @@ const ProblemSection = () => {
                <h3 className="text-4xl font-bold text-white mb-8 leading-tight">
                  The Result: <br /> <span className="text-gradient-gold">Mathematical Predictability.</span>
                </h3>
-               <p className="text-slate-400 font-light leading-relaxed">
+               <p className="text-slate-400 font-light leading-relaxed text-sm">
                  By aggregating these micro-interactions, entities build a digital twin of your consciousness. They know your next move before you do.
                </p>
              </div>
@@ -131,4 +127,4 @@ const ProblemSection = () => {
   );
 };
 
-export default ProblemSection;
+export default ProblemSection;
