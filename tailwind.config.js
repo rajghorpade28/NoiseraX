@@ -36,13 +36,21 @@ export default {
                     900: '#064e3b',
                 },
                 onyx: {
-                    DEFAULT: '#0c0c0f',
-                    950:    '#07070a',
-                    900:    '#0c0c0f',
-                    800:    '#141418',
-                    700:    '#1e1e24',
-                    600:    '#2a2a33',
+                    DEFAULT: '#050505', // Deep rich text
+                    950:    '#020202',
+                    900:    '#050505',
+                    800:    '#1a1a1a',
+                    700:    '#2d2d2d',
+                    600:    '#4a4a4a',
+                    500:    '#666666',
                 },
+                alabaster: {
+                    DEFAULT: '#fafafa',
+                    50: '#ffffff',
+                    100: '#fafafa',
+                    200: '#f5f5f5',
+                    300: '#ebebeb',
+                }
             },
             animation: {
                 'fade-in':    'fadeIn 0.5s ease-in-out',
@@ -78,13 +86,10 @@ export default {
                     '100%': { backgroundPosition: '200% 0' },
                 },
             },
-            backdropBlur: {
-                xs: '2px',
-            },
             boxShadow: {
-                'gold-glow':    '0 0 40px rgba(212, 175, 55, 0.35)',
-                'gold-glow-lg': '0 0 80px rgba(212, 175, 55, 0.4)',
-                'emerald-glow': '0 0 40px rgba(16, 185, 129, 0.35)',
+                'gold-glow':    '0 10px 40px rgba(212, 175, 55, 0.15)',
+                'premium':      '0 20px 50px rgba(0, 0, 0, 0.05)',
+                'card':         '0 4px 20px rgba(0, 0, 0, 0.03)',
             },
         },
     },
