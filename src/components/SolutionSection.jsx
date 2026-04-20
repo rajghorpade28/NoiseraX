@@ -34,7 +34,7 @@ const SolutionSection = () => {
             <h2 className="text-6xl md:text-8xl font-bold text-white mb-10 leading-tight tracking-tighter">
               Fluid <br /> <span className="text-gradient-gold italic font-serif">Dissolution.</span>
             </h2>
-            <p className="text-xl text-slate-400 max-w-3xl font-light leading-relaxed">
+            <p className="text-xl text-slate-200 max-w-3xl font-light leading-relaxed">
               NoiseraX doesn't just block; it dissolves. Our protocol injects ultra-high entropy behavioral noise, rendering your true digital signature mathematically invisible.
             </p>
           </motion.div>
@@ -80,14 +80,14 @@ const SolutionSection = () => {
                    { label: 'Entropy Pulse', value: '4.9s', color: '#10b981' },
                    { label: 'Noise Density', value: 'Level 9', color: '#D4AF37' },
                    { label: 'Signal Guard', value: '100%', color: '#fff' },
-                   { label: 'Latency', value: '0.8ms', color: '#64748b' },
+                   { label: 'Latency', value: '0.8ms', color: '#94a3b8' },
                  ].map((stat, i) => (
                    <motion.div 
                     key={i} 
                     className="p-5 bg-white/[0.03] border border-white/5 rounded-3xl group-hover:bg-white/[0.05] transition-colors"
                     whileHover={{ y: -5 }}
                    >
-                      <div className="text-[8px] uppercase tracking-widest text-slate-500 mb-2 font-bold">{stat.label}</div>
+                      <div className="text-[8px] uppercase tracking-widest text-slate-300 mb-2 font-bold">{stat.label}</div>
                       <div className="text-xl font-bold font-mono" style={{ color: stat.color }}>{stat.value}</div>
                    </motion.div>
                  ))}
@@ -153,8 +153,8 @@ const SolutionSection = () => {
                 <div className="w-12 h-12 rounded-2xl bg-gold-500/10 flex items-center justify-center text-gold-500 mb-8 border border-gold-500/20">
                   <Layers className="w-6 h-6" />
                 </div>
-                <h4 className="text-3xl font-bold text-white mb-4 italic font-serif">Layered Defense</h4>
-                <p className="text-sm text-slate-500 font-light leading-relaxed">NoiseraX operates across the DOM, network request, and behavioral layers simultaneously.</p>
+                <h4 className="text-2xl font-bold text-white mb-4 italic font-serif">Layered Defense</h4>
+                <p className="text-sm text-slate-200 font-light leading-relaxed">NoiseraX operates across the DOM, network request, and behavioral layers simultaneously.</p>
               </div>
               <button className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500 mt-12 group/btn">
                 Access Infrastructure <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
@@ -175,7 +175,7 @@ const SolutionSection = () => {
               </div>
               <div className="space-y-4">
                  <div className="flex justify-between text-[11px] font-bold tracking-tight">
-                    <span className="text-slate-400 uppercase">Entropy Masking</span>
+                    <span className="text-slate-200 uppercase">Entropy Masking</span>
                     <span className="text-emerald-500">98.2% Dissolved</span>
                  </div>
                  <div className="h-2 w-full bg-black/40 rounded-full overflow-hidden border border-white/5">
@@ -197,11 +197,11 @@ const SolutionSection = () => {
               transition={{ duration: 1, delay: 0.5 }}
               viewport={{ once: true }}
             >
-               <div className="text-[9px] text-slate-600 mb-6 uppercase tracking-[0.3em] font-bold border-b border-white/5 pb-2">Protocol Trace</div>
+               <div className="text-[9px] text-slate-400 mb-6 uppercase tracking-[0.3em] font-bold border-b border-white/5 pb-2">Protocol Trace</div>
                <div className="space-y-3">
                   <div className="text-[10px] text-emerald-500 font-bold tracking-tight">&gt; INJECTING SEED: SYTN_0X42..</div>
-                  <div className="text-[10px] text-slate-500 tracking-tight">&gt; ENTROPY_SCORE: 0.9998124</div>
-                  <div className="text-[10px] text-slate-500 tracking-tight">&gt; ACTIVE_PERSONA: ARCH_DELTA</div>
+                  <div className="text-[10px] text-slate-200 tracking-tight">&gt; ENTROPY_SCORE: 0.9998124</div>
+                  <div className="text-[10px] text-slate-200 tracking-tight">&gt; ACTIVE_PERSONA: ARCH_DELTA</div>
                   <motion.div 
                     className="text-[10px] text-gold-500 font-bold"
                     animate={{ opacity: [0.4, 1, 0.4] }}
@@ -223,11 +223,11 @@ const SolutionSection = () => {
             >
                <div>
                   <h4 className="text-4xl font-bold text-white mb-8 tracking-tight">Passive Defense</h4>
-                  <p className="text-slate-500 mb-12 leading-relaxed font-light text-lg">Traditional tools attempt to hide through blocking. This creates suspicious gaps and often fails to bypass modern fingerprinting techniques.</p>
+                  <p className="text-slate-200 mb-12 leading-relaxed font-light text-lg">Traditional tools attempt to hide through blocking. This creates suspicious gaps and often fails to bypass modern fingerprinting techniques.</p>
                   <div className="grid gap-5">
                      {["Ineffective Canvas Blocking", "Suspicious Data Gaps", "Broken Profile Continuity"].map((item, i) => (
-                       <div key={i} className="flex items-center gap-4 text-[13px] font-bold text-slate-600 uppercase tracking-widest border-b border-white/5 pb-5">
-                         <div className="w-1.5 h-1.5 bg-slate-700 rounded-full" />
+                       <div key={i} className="flex items-center gap-4 text-[13px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/5 pb-5">
+                         <div className="w-1.5 h-1.5 bg-slate-400 rounded-full" />
                          {item}
                        </div>
                      ))}
@@ -247,7 +247,7 @@ const SolutionSection = () => {
                     <Zap className="w-7 h-7 shadow-[0_0_10px_#D4AF37]" />
                   </div>
                   <h4 className="text-4xl font-bold text-white mb-8 tracking-tight">Active Dissolution</h4>
-                  <p className="text-slate-400 mb-12 leading-relaxed font-light text-lg italic font-serif">NoiseraX methodology: Flooding the stream with legitimate noise, making the signal-to-noise ratio mathematically impossible to decipher.</p>
+                  <p className="text-slate-100 mb-12 leading-relaxed font-light text-lg italic font-serif">NoiseraX methodology: Flooding the stream with legitimate noise, making the signal-to-noise ratio mathematically impossible to decipher.</p>
                   <div className="grid gap-5">
                      {["Total Identity Cloaking", "Seamless Platform Logic", "Full Behavioral Entropy"].map((item, i) => (
                        <div key={i} className="flex items-center gap-4 text-[13px] font-bold text-emerald-500 uppercase tracking-[0.2em] border-b border-emerald-500/10 pb-5">

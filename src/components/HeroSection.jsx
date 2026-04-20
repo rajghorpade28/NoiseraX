@@ -55,7 +55,7 @@ const HeroSection = () => {
               <span className="text-gradient-gold italic font-serif">DISSOLUTION.</span>
             </h1>
 
-            <p className="text-xl text-slate-400 max-w-2xl mb-12 font-light leading-relaxed">
+            <p className="text-xl text-slate-300 max-w-2xl mb-12 font-light leading-relaxed">
               NoiseraX engineers a sanctuary for your digital signature. Beyond simple masking,
               our protocol actively corrupts the stream of behavioral metadata.
             </p>
@@ -93,7 +93,7 @@ const HeroSection = () => {
             >
               <Lock className="w-9 h-9 mb-8" style={{ color: 'rgba(212,175,55,0.6)' }} />
               <h3 className="text-2xl font-bold text-white mb-3 italic font-serif">Sovereign Data</h3>
-              <p className="text-sm text-slate-500 font-light leading-relaxed mb-8">
+              <p className="text-sm text-slate-300 font-light leading-relaxed mb-8">
                 Everything processed locally. Zero cloud footprint.
               </p>
               {/* Animated progress bar */}

@@ -67,7 +67,7 @@ const Header = () => {
                 <a
                   key={name}
                   href={path}
-                  className="relative text-[11px] font-bold uppercase tracking-[0.3em] text-slate-400 hover:text-white transition-colors duration-200 group"
+                  className="relative text-[11px] font-bold uppercase tracking-[0.3em] text-slate-300 hover:text-white transition-colors duration-200 group"
                 >
                   {name}
                   <span

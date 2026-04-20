@@ -62,7 +62,7 @@ const ProblemSection = () => {
             <h2 className="text-6xl md:text-8xl font-bold text-white mb-10 leading-tight tracking-tighter">
               Behavioral <br /> <span className="text-gradient-gold italic font-serif">Subjugation.</span>
             </h2>
-            <p className="text-xl text-slate-400 max-w-3xl font-light leading-relaxed">
+            <p className="text-xl text-slate-200 max-w-3xl font-light leading-relaxed">
               Modern surveillance doesn't just watch you; it predicts you. Every scroll, every hover, and every pause is harvested to construct a mathematical cage of your identity.
             </p>
           </motion.div>
@@ -88,7 +88,7 @@ const ProblemSection = () => {
               <div className="flex justify-between items-center mb-12">
                  <div className="flex items-center gap-3">
                     <ShieldAlert className="w-5 h-5 text-rose-500 shadow-[0_0_10px_#f43f5e]" />
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Threat Matrix: Active</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-200">Threat Matrix: Active</span>
                  </div>
                  <div className="badge-live bg-rose-500/10 border-rose-500/40 text-rose-500 before:bg-rose-500 before:shadow-[0_0_8px_#f43f5e]">Scanning Exposure...</div>
               </div>
@@ -131,11 +131,11 @@ const ProblemSection = () => {
 
               <div className="grid grid-cols-2 gap-5">
                  <div className="p-6 bg-white/[0.02] rounded-3xl border border-white/5 group-hover:border-rose-500/20 transition-all">
-                    <div className="text-[9px] uppercase tracking-widest text-slate-500 mb-2 font-bold">Leakage Type</div>
+                    <div className="text-[9px] uppercase tracking-widest text-slate-300 mb-2 font-bold">Leakage Type</div>
                     <div className="text-sm font-bold text-white">Temporal Drift</div>
                  </div>
                  <div className="p-6 bg-white/[0.02] rounded-3xl border border-white/5 group-hover:border-rose-500/20 transition-all">
-                    <div className="text-[9px] uppercase tracking-widest text-slate-500 mb-2 font-bold">Exposure Status</div>
+                    <div className="text-[9px] uppercase tracking-widest text-slate-300 mb-2 font-bold">Exposure Status</div>
                     <div className="text-sm font-bold text-rose-500 animate-pulse">Unencrypted Pulse</div>
                  </div>
               </div>
@@ -162,7 +162,7 @@ const ProblemSection = () => {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-white mb-1 group-hover:text-rose-400 transition-colors">{tracker.title}</h4>
-                    <p className="text-[10px] uppercase tracking-widest text-slate-500 group-hover:text-slate-400 transition-colors">Risk Level: Severe</p>
+                    <p className="text-[10px] uppercase tracking-widest text-slate-300 group-hover:text-slate-200 transition-colors">Risk Level: Severe</p>
                   </div>
                 </div>
                 <div className="w-10 h-10 rounded-full border border-rose-500/20 flex items-center justify-center">
@@ -179,7 +179,7 @@ const ProblemSection = () => {
               viewport={{ once: true }}
             >
                <h4 className="text-2xl font-bold text-white mb-4 italic font-serif">The Synthetic Loop</h4>
-               <p className="text-sm text-slate-400 font-light leading-relaxed mb-8">
+               <p className="text-sm text-slate-200 font-light leading-relaxed mb-8">
                  Profiling engines use recursive learning to close the gap on your anonymity. Traditional tools provide a false sense of security.
                </p>
                <div className="flex items-center gap-3">

@@ -92,7 +92,7 @@ const FeaturesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-slate-400 text-lg font-light leading-relaxed max-w-sm"
+            className="text-slate-200 text-lg font-light leading-relaxed max-w-sm"
           >
             NoiseraX is built on cryptographic logic and behavioral engineering — every module designed for absolute anonymity.
           </motion.p>
@@ -128,7 +128,7 @@ const FeaturesSection = () => {
                 >
                   <f.icon className="w-6 h-6" />
                 </div>
-                <div className="text-[9px] font-mono text-slate-600 uppercase tracking-widest pt-1">
+                <div className="text-[9px] font-mono text-slate-400 uppercase tracking-widest pt-1">
                   Protocol {String(i + 1).padStart(2, '0')}
                 </div>
               </div>
@@ -138,7 +138,7 @@ const FeaturesSection = () => {
                 <h3 className="text-2xl font-bold text-white mb-4 italic font-serif leading-tight">
                   {f.title}
                 </h3>
-                <p className="text-slate-400 text-sm font-light leading-relaxed mb-8 max-w-sm">
+                <p className="text-slate-200 text-sm font-light leading-relaxed mb-8 max-w-sm">
                   {f.description}
                 </p>
               </div>
@@ -181,7 +181,7 @@ const FeaturesSection = () => {
               INITIALIZE{' '}
               <span className="text-gradient-gold italic font-serif">AUTONOMY.</span>
             </h3>
-            <p className="text-xl text-slate-400 mb-12 max-w-2xl font-light leading-relaxed">
+            <p className="text-xl text-slate-200 mb-12 max-w-2xl font-light leading-relaxed">
               Step into the architects' circle. Experience the pinnacle of sovereign technology.
             </p>
             <motion.button
