@@ -21,18 +21,24 @@
   - Implement theme-aware color system in Tailwind config
   - _Requirements: 12.2, 12.4, 12.5_
 
-- [ ] 3. Build hero section with main value proposition
+- [x] 3. Build hero section with main value proposition
+
+
   - Create hero component with gradient headline "Confuse Trackers. Protect Your Digital Behavior."
   - Add subtext explaining DCG's core functionality in 1-2 lines
   - Implement dual CTA buttons for "Add to Chrome" and "See How It Works"
   - Create animated visual showing personas browsing or signal vs noise concept
   - _Requirements: 1.1, 1.2, 1.3, 1.4_
 
+
+
 - [ ] 4. Implement problem explanation section
   - Build problem section explaining website tracking (time, scroll, clicks, navigation)
   - Create visual icons/diagrams showing behavioral profile building
   - Add explanation of why blocking trackers is insufficient
   - Implement responsive layout for problem visualization
+
+
   - _Requirements: 2.1, 2.2, 2.3, 2.4_
 
 - [ ] 5. Create solution section with DCG's unique approach
