@@ -1,254 +1,143 @@
-import { motion } from 'framer-motion';
-import { ArrowRight, Play, Shield, Eye, Zap, Users, Brain, Activity } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, Play, Shield, Globe, Zap, Crown, Fingerprint, Lock } from 'lucide-react';
 
 const HeroSection = () => {
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.5,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, cubicBezier: [0.16, 1, 0.3, 1] }
+    },
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 pb-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
-          >
-            <motion.div
-              className="inline-flex items-center gap-2 bg-primary-500/10 border border-primary-500/20 rounded-full px-4 py-2 mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-            >
-              <Shield className="w-4 h-4 text-primary-400" />
-              <span className="text-sm font-medium text-primary-300">Privacy + Security Browser Extension</span>
-            </motion.div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-onyx">
+      {/* Background Image with Parallax */}
+      <motion.div 
+        style={{ y: y1, opacity }}
+        className="absolute inset-0 z-0"
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-onyx/20 via-onyx/60 to-onyx z-10" />
+        <img 
+          src="/luxury_tech_background_1776668191835.png" 
+          alt="Luxury Tech Background"
+          className="w-full h-full object-cover scale-110 opacity-40 mix-blend-luminosity"
+        />
+      </motion.div>
 
-            <motion.h1
-              className="text-5xl lg:text-6xl font-bold mb-6 leading-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-                Confuse Trackers.
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-                Protect Your Digital Behavior.
-              </span>
-            </motion.h1>
-
-            <motion.p
-              className="text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              DCG is a revolutionary browser extension that generates realistic background browsing activity to confuse trackers, 
-              while providing real-time phishing detection using both external threat intelligence and local machine learning. 
-              <span className="text-primary-300 font-medium">Everything runs on-device with no servers, no accounts, and no data collection.</span>
-            </motion.p>
-
-            {/* Key Features Preview */}
-            <motion.div
-              className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-lg p-4 text-center">
-                <Users className="w-6 h-6 text-blue-400 mx-auto mb-2" />
-                <div className="text-sm font-medium text-white">Multiple Personas</div>
-                <div className="text-xs text-slate-400">Realistic behavior simulation</div>
-              </div>
-              <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-lg p-4 text-center">
-                <Brain className="w-6 h-6 text-purple-400 mx-auto mb-2" />
-                <div className="text-sm font-medium text-white">Smart Detection</div>
-                <div className="text-xs text-slate-400">AI-powered phishing protection</div>
-              </div>
-              <div className="bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-lg p-4 text-center">
-                <Activity className="w-6 h-6 text-green-400 mx-auto mb-2" />
-                <div className="text-sm font-medium text-white">Adaptive Noise</div>
-                <div className="text-xs text-slate-400">Behavior-based corruption</div>
-              </div>
-            </motion.div>
-
-            {/* CTA Buttons */}
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <motion.button
-                className="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-semibold text-lg flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-primary-500/25"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Add to Chrome
-                <ArrowRight className="w-5 h-5" />
-              </motion.button>
-              
-              <motion.button
-                className="px-8 py-4 bg-slate-800/50 hover:bg-slate-700/50 text-white rounded-xl font-semibold text-lg flex items-center justify-center gap-2 transition-all duration-300 border border-slate-600 backdrop-blur-sm"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Play className="w-5 h-5" />
-                See How It Works
-              </motion.button>
-            </motion.div>
-
-            {/* Trust indicators */}
-            <motion.div
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-slate-400"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-green-400" />
-                <span>100% Local Processing</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Eye className="w-4 h-4 text-blue-400" />
-                <span>No Data Collection</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-purple-400" />
-                <span>Real-time Protection</span>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Enhanced Visual */}
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <div className="relative w-full h-96 lg:h-[500px] rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 overflow-hidden">
-              {/* Enhanced signal visualization */}
-              <div className="absolute inset-0 p-8">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="text-xs text-slate-400 font-mono">DCG Signal Analysis</div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <span className="text-xs text-green-400">Active</span>
-                  </div>
-                </div>
-                
-                {/* Original behavior section */}
-                <div className="mb-8">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="text-sm text-slate-300 font-medium">Your Real Behavior</div>
-                    <div className="text-xs text-blue-400">Trackable: 94%</div>
-                  </div>
-                  <div className="h-12 bg-slate-800/50 rounded-lg relative overflow-hidden border border-slate-700/30">
-                    <motion.div
-                      className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-cyan-400 -translate-y-1/2"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 2, delay: 1 }}
-                      style={{ transformOrigin: 'left' }}
-                    />
-                    <motion.div
-                      className="absolute top-1/2 left-0 w-3 h-3 bg-blue-400 rounded-full -translate-y-1/2 shadow-lg shadow-blue-400/50"
-                      animate={{ x: [0, 280, 0] }}
-                      transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-                    />
-                  </div>
-                </div>
-
-                {/* DCG corrupted behavior */}
-                <div className="mb-8">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="text-sm text-slate-300 font-medium">With DCG Noise Injection</div>
-                    <div className="text-xs text-red-400">Trackable: 23%</div>
-                  </div>
-                  <div className="h-16 bg-slate-800/50 rounded-lg relative overflow-hidden border border-slate-700/30">
-                    {/* Multiple overlapping signals representing different personas */}
-                    {[
-                      { color: 'bg-blue-400', delay: 0, y: 0 },
-                      { color: 'bg-purple-400', delay: 0.3, y: -8 },
-                      { color: 'bg-green-400', delay: 0.6, y: 8 },
-                      { color: 'bg-yellow-400', delay: 0.9, y: -4 },
-                      { color: 'bg-pink-400', delay: 1.2, y: 4 },
-                    ].map((signal, i) => (
-                      <motion.div
-                        key={i}
-                        className={`absolute top-1/2 left-0 w-full h-0.5 ${signal.color} opacity-70`}
-                        initial={{ scaleX: 0 }}
-                        animate={{ scaleX: 1 }}
-                        transition={{ duration: 1.5, delay: 1.5 + signal.delay }}
-                        style={{ 
-                          transformOrigin: 'left',
-                          transform: `translateY(${signal.y}px)`
-                        }}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                {/* Status indicators */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-slate-800/30 rounded-lg p-3 border border-slate-700/30">
-                    <div className="text-xs text-slate-400 mb-1">Active Personas</div>
-                    <div className="text-lg font-bold text-white">4</div>
-                  </div>
-                  <div className="bg-slate-800/30 rounded-lg p-3 border border-slate-700/30">
-                    <div className="text-xs text-slate-400 mb-1">Profile Accuracy</div>
-                    <div className="text-lg font-bold text-red-400">23%</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating personas with enhanced animations */}
-              <div className="absolute top-4 right-4 space-y-2">
-                {[
-                  { emoji: '🎮', label: 'Gamer' },
-                  { emoji: '📚', label: 'Reader' }, 
-                  { emoji: '🏃', label: 'Fitness' },
-                  { emoji: '🍳', label: 'Cooking' }
-                ].map((persona, i) => (
-                  <motion.div
-                    key={i}
-                    className="group relative"
-                    animate={{ 
-                      y: [0, -10, 0],
-                      rotate: [0, 5, -5, 0]
-                    }}
-                    transition={{ 
-                      duration: 3,
-                      repeat: Infinity,
-                      delay: i * 0.5
-                    }}
-                  >
-                    <div className="w-10 h-10 bg-slate-700/50 rounded-full flex items-center justify-center text-lg backdrop-blur-sm border border-slate-600/50 hover:border-primary-500/50 transition-colors cursor-pointer">
-                      {persona.emoji}
-                    </div>
-                    <div className="absolute -left-16 top-1/2 -translate-y-1/2 bg-slate-800 text-xs text-slate-300 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                      {persona.label}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
+      {/* Decorative Elements */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+        <div className="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-gold-500/10 blur-[120px] rounded-full" />
+        <div className="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-emerald-500/5 blur-[120px] rounded-full" />
       </div>
 
-      {/* Enhanced scroll indicator */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col items-center text-center"
+        >
+          {/* Badge */}
+          <motion.div
+            variants={itemVariants}
+            className="inline-flex items-center gap-3 bg-white/5 border border-white/10 backdrop-blur-md rounded-full px-5 py-2 mb-10 group cursor-default"
+          >
+            <Crown className="w-4 h-4 text-gold-500 animate-pulse" />
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-gold-200">The Gold Standard of Privacy</span>
+          </motion.div>
+
+          {/* Main Heading */}
+          <motion.h1
+            variants={itemVariants}
+            className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8 leading-[0.9] tracking-tighter"
+          >
+            <span className="block text-white">REDEFINE.</span>
+            <span className="block text-gradient-gold">ANONYMITY.</span>
+          </motion.h1>
+
+          <motion.p
+            variants={itemVariants}
+            className="text-xl md:text-2xl text-slate-400 mb-12 max-w-3xl leading-relaxed font-light"
+          >
+            Experience the world's most sophisticated browser extension. 
+            <span className="text-white font-medium"> NoiseraX</span> employs high-fidelity behavior synthesis to render your digital footprint untraceable.
+          </motion.p>
+
+          {/* CTA Group */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-6 mb-20"
+          >
+            <motion.button
+              className="px-10 py-5 bg-gold-500 text-onyx rounded-full font-bold text-lg flex items-center justify-center gap-3 transition-all shadow-[0_0_40px_rgba(212,175,55,0.3)] hover:shadow-[0_0_60px_rgba(212,175,55,0.5)]"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Get Privileged Access
+              <ArrowRight className="w-5 h-5" />
+            </motion.button>
+            
+            <motion.button
+              className="px-10 py-5 bg-transparent text-white border border-white/20 hover:border-gold-500/50 hover:bg-white/5 rounded-full font-bold text-lg flex items-center justify-center gap-3 backdrop-blur-sm transition-all"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Play className="w-5 h-5 text-gold-500" />
+              Watch the Film
+            </motion.button>
+          </motion.div>
+
+          {/* Trust Matrix */}
+          <motion.div
+            variants={itemVariants}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 pt-12 border-t border-white/5 w-full max-w-4xl"
+          >
+            {[
+              { icon: Lock, label: 'Military Grade', sub: 'On-Device ML' },
+              { icon: Globe, label: 'Global Synth', sub: 'Behavioral Noise' },
+              { icon: Fingerprint, label: 'Anti-Print', sub: 'Identity Cloak' },
+              { icon: Zap, label: 'Zero Latency', sub: 'Optimized Core' },
+            ].map((stat, i) => (
+              <div key={i} className="flex flex-col items-center">
+                <stat.icon className="w-6 h-6 text-gold-500/50 mb-3" />
+                <div className="text-xs font-bold text-white uppercase tracking-widest mb-1">{stat.label}</div>
+                <div className="text-[10px] text-slate-500 uppercase tracking-tighter">{stat.sub}</div>
+              </div>
+            ))}
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* Luxury Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center"
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
         animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
+        transition={{ duration: 3, repeat: Infinity }}
       >
-        <div className="w-6 h-10 border-2 border-slate-400 rounded-full flex justify-center mb-2">
-          <div className="w-1 h-3 bg-slate-400 rounded-full mt-2"></div>
+        <div className="w-px h-24 bg-gradient-to-b from-transparent via-gold-500/50 to-transparent relative">
+          <motion.div 
+            className="absolute top-0 left-[-1.5px] w-1 h-3 bg-gold-500 rounded-full"
+            animate={{ top: ['0%', '100%', '0%'] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
         </div>
-        <div className="text-xs text-slate-500">Scroll to explore</div>
       </motion.div>
     </section>
   );

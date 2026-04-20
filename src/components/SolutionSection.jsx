@@ -1,290 +1,225 @@
 import { motion } from 'framer-motion';
-import { Shield, Zap, Brain, Shuffle, TrendingDown, CheckCircle } from 'lucide-react';
+import { Shield, Zap, Brain, Shuffle, Activity, TrendingDown, CheckCircle, Globe, Lock } from 'lucide-react';
 
 const SolutionSection = () => {
-  const approaches = [
-    {
-      type: "Traditional Tools",
-      icon: Shield,
-      method: "Block Trackers",
-      description: "Hide Activity",
-      approach: "Passive Defense",
-      problems: [
-        "Fingerprinting still works",
-        "Behavioral patterns remain clear", 
-        "Limited data still reveals patterns",
-        "Breaks website functionality"
-      ],
-      color: "from-gray-500 to-gray-600"
-    },
-    {
-      type: "DCG Approach",
-      icon: Brain,
-      method: "Corrupt Data",
-      description: "Mix Real + Fake",
-      approach: "Active Defense",
-      benefits: [
-        "Behavioral fingerprinting fails",
-        "Profiles become unreliable",
-        "Maintains website functionality",
-        "Adaptive noise generation"
-      ],
-      color: "from-primary-500 to-accent-500"
-    }
-  ];
-
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-32 px-4 sm:px-6 lg:px-8 bg-onyx relative overflow-hidden" id="solution">
+      {/* Abstract Background Elements */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/5 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-              The Solution:
-            </span>
-            <br />
-            <span className="text-white">
-              Instead of Blocking Tracking — DCG Corrupts It
-            </span>
-          </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            DCG takes a revolutionary approach to privacy protection. Rather than trying to hide your activity, 
-            we flood trackers with realistic but fake behavioral data, making their profiles worthless.
-          </p>
-        </motion.div>
-
-        {/* Core Concept Visualization */}
-        <motion.div
-          className="bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-12 mb-20"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-white mb-4">The DCG Formula</h3>
-            <p className="text-lg text-slate-300">How we make behavioral profiling unreliable</p>
-          </div>
-
-          <div className="grid lg:grid-cols-5 gap-8 items-center">
-            {/* Real Behavior */}
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Brain className="w-10 h-10 text-blue-400" />
-              </div>
-              <h4 className="text-lg font-semibold text-white mb-2">Real Behavior</h4>
-              <p className="text-sm text-slate-400">Your actual browsing patterns</p>
-            </motion.div>
-
-            {/* Plus */}
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-4xl font-bold text-green-400">+</div>
-            </motion.div>
-
-            {/* Fake Behavior */}
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <div className="w-20 h-20 bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Shuffle className="w-10 h-10 text-purple-400" />
-              </div>
-              <h4 className="text-lg font-semibold text-white mb-2">Fake Behavior</h4>
-              <p className="text-sm text-slate-400">AI-generated realistic noise</p>
-            </motion.div>
-
-            {/* Equals */}
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-4xl font-bold text-green-400">=</div>
-            </motion.div>
-
-            {/* Unreliable Data */}
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 1.0 }}
-              viewport={{ once: true }}
-            >
-              <div className="w-20 h-20 bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <TrendingDown className="w-10 h-10 text-red-400" />
-              </div>
-              <h4 className="text-lg font-semibold text-white mb-2">Unreliable Data</h4>
-              <p className="text-sm text-slate-400">Corrupted behavioral profiles</p>
-            </motion.div>
-          </div>
-
-          {/* Signal Visualization */}
+        <div className="text-center mb-32">
           <motion.div
-            className="mt-12 bg-slate-800/50 rounded-2xl p-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
             viewport={{ once: true }}
+            className="inline-flex items-center gap-3 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-8"
           >
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Clean Signal */}
-              <div>
-                <h5 className="text-lg font-semibold text-white mb-4">Without DCG: Clean Signal</h5>
-                <div className="h-24 bg-slate-900/50 rounded-lg relative overflow-hidden border border-slate-700/30">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.div
-                      className="w-full h-1 bg-gradient-to-r from-blue-400 to-cyan-400"
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      transition={{ duration: 2, delay: 1 }}
-                      style={{ transformOrigin: 'left' }}
-                    />
-                  </div>
-                  <div className="absolute bottom-2 left-4 text-xs text-slate-400">
-                    Tracking Accuracy: 94%
-                  </div>
-                </div>
-              </div>
-
-              {/* Noisy Signal */}
-              <div>
-                <h5 className="text-lg font-semibold text-white mb-4">With DCG: Corrupted Signal</h5>
-                <div className="h-24 bg-slate-900/50 rounded-lg relative overflow-hidden border border-slate-700/30">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    {/* Multiple overlapping signals */}
-                    {[...Array(7)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className={`absolute w-full h-0.5 ${
-                          i === 0 ? 'bg-blue-400' : 'bg-purple-400/60'
-                        }`}
-                        initial={{ scaleX: 0, opacity: 0 }}
-                        whileInView={{ scaleX: 1, opacity: 1 }}
-                        transition={{ 
-                          duration: 1.5, 
-                          delay: 1.2 + i * 0.1,
-                          ease: "easeOut"
-                        }}
-                        style={{ 
-                          transformOrigin: 'left',
-                          transform: `translateY(${(i - 3) * 4}px)`
-                        }}
-                      />
-                    ))}
-                  </div>
-                  <div className="absolute bottom-2 left-4 text-xs text-green-400">
-                    Tracking Accuracy: 23%
-                  </div>
-                </div>
-              </div>
-            </div>
+             <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+             <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-400">The Neural Solution</span>
           </motion.div>
-        </motion.div>
-
-        {/* Approach Comparison */}
-        <div className="grid lg:grid-cols-2 gap-12">
-          {approaches.map((approach, index) => (
-            <motion.div
-              key={approach.type}
-              className={`bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 ${
-                approach.type === 'DCG Approach' ? 'ring-2 ring-primary-500/20' : ''
-              }`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5 }}
-            >
-              <div className="text-center mb-8">
-                <div className={`w-16 h-16 bg-gradient-to-br ${approach.color}/20 rounded-2xl flex items-center justify-center mx-auto mb-4`}>
-                  <approach.icon className={`w-8 h-8 ${approach.type === 'DCG Approach' ? 'text-primary-400' : 'text-gray-400'}`} />
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-2">{approach.type}</h3>
-                <div className="space-y-2">
-                  <div className={`inline-block px-4 py-2 bg-gradient-to-r ${approach.color}/20 rounded-full`}>
-                    <span className={`font-semibold ${approach.type === 'DCG Approach' ? 'text-primary-400' : 'text-gray-400'}`}>
-                      {approach.method}
-                    </span>
-                  </div>
-                  <div className="text-slate-300">{approach.description}</div>
-                  <div className={`text-sm font-medium ${approach.type === 'DCG Approach' ? 'text-green-400' : 'text-orange-400'}`}>
-                    {approach.approach}
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-3">
-                {(approach.problems || approach.benefits)?.map((item, itemIndex) => (
-                  <motion.div
-                    key={item}
-                    className="flex items-start gap-3"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.2 + itemIndex * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    {approach.benefits ? (
-                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                    ) : (
-                      <div className="w-5 h-5 border-2 border-red-400 rounded-full flex-shrink-0 mt-0.5 flex items-center justify-center">
-                        <div className="w-2 h-2 bg-red-400 rounded-full" />
-                      </div>
-                    )}
-                    <span className={`${approach.benefits ? 'text-slate-300' : 'text-slate-400'}`}>
-                      {item}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+          <h2 className="text-5xl md:text-8xl font-bold text-white mb-8 tracking-tighter">
+            ACTIVE <span className="italic font-serif text-gradient-gold">DISSOLUTION.</span>
+          </h2>
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light">
+            NoiseraX does not hide. It corrupts. By synthesizing authentic behavioral noise, we render the observer's intelligence invalid.
+          </p>
         </div>
 
-        {/* Key Insight */}
+        {/* High-Fidelity Dashboard Visualization */}
         <motion.div
-          className="mt-16 text-center bg-gradient-to-r from-primary-900/20 to-accent-900/20 border border-primary-500/20 rounded-2xl p-8"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
+          className="premium-border rounded-[3rem] p-1 shadow-2xl shadow-emerald-950/20 mb-32"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2 }}
           viewport={{ once: true }}
         >
-          <Zap className="w-12 h-12 text-primary-400 mx-auto mb-4" />
-          <h3 className="text-2xl font-bold text-white mb-4">
-            The Key Insight: Noise is More Powerful Than Silence
-          </h3>
-          <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            While traditional tools try to hide your activity (creating suspicious gaps), DCG floods trackers with 
-            realistic behavioral data that looks completely legitimate. This makes it impossible for algorithms to 
-            distinguish between your real interests and the noise, <span className="text-primary-400 font-medium">
-            effectively breaking behavioral profiling at scale.</span>
-          </p>
+          <div className="bg-onyx h-full w-full rounded-[2.8rem] p-8 md:p-16 overflow-hidden relative">
+            <div className="grid lg:grid-cols-2 gap-20 items-center">
+              {/* Left Side: Stats & Logic */}
+              <div>
+                <div className="flex items-center gap-4 mb-12">
+                   <div className="w-12 h-12 glass rounded-2xl flex items-center justify-center text-gold-500 shadow-lg shadow-gold-500/10">
+                      <Brain className="w-6 h-6" />
+                   </div>
+                   <div>
+                      <h3 className="text-2xl font-bold text-white tracking-tight">The NoiseraX Protocol</h3>
+                      <p className="text-sm text-slate-500 uppercase tracking-widest font-mono">Neural Behavioral Synthesis</p>
+                   </div>
+                </div>
+
+                <div className="space-y-10">
+                   {[
+                     { label: "Phase 1: Analysis", val: "Temporal Sync", desc: "Syncing with your natural digital circadian rhythms." },
+                     { label: "Phase 2: Synthesis", val: "Persona Injection", desc: "Layering high-entropy behavioral noise into active streams." },
+                     { label: "Phase 3: Dissolution", val: "Profile Decay", desc: "Systematic corruption of third-party behavioral models." }
+                   ].map((step, i) => (
+                     <motion.div 
+                        key={i}
+                        className="flex gap-6 relative"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 + i * 0.2 }}
+                        viewport={{ once: true }}
+                     >
+                        <div className="flex flex-col items-center">
+                           <div className="w-6 h-6 rounded-full border border-gold-500/30 flex items-center justify-center text-[10px] text-gold-500 font-bold bg-gold-500/5">
+                              {i + 1}
+                           </div>
+                           {i !== 2 && <div className="w-px h-full bg-white/5 mt-2" />}
+                        </div>
+                        <div>
+                           <div className="text-[10px] uppercase tracking-[0.2em] text-slate-500 mb-1">{step.label}</div>
+                           <div className="text-lg font-bold text-white mb-1 tracking-tight">{step.val}</div>
+                           <p className="text-sm text-slate-500 font-light leading-relaxed">{step.desc}</p>
+                        </div>
+                     </motion.div>
+                   ))}
+                </div>
+              </div>
+
+              {/* Right Side: Visual Signal Analysis */}
+              <div className="relative">
+                 <div className="glass rounded-[2rem] p-10 border-white/5 relative overflow-hidden">
+                    {/* Grid Background */}
+                    <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]" />
+                    
+                    <div className="relative z-10">
+                       <div className="flex justify-between items-end mb-10">
+                          <div>
+                             <div className="text-[10px] uppercase tracking-[0.3em] text-gold-500/50 mb-2">Real-time Interference</div>
+                             <div className="text-4xl font-bold text-white italic font-serif">Aura Flux</div>
+                          </div>
+                          <div className="text-right">
+                             <div className="text-[10px] uppercase tracking-[0.2em] text-emerald-500 mb-2">Entropy Level</div>
+                             <div className="text-2xl font-bold text-emerald-500">Critical</div>
+                          </div>
+                       </div>
+
+                       {/* Waveform Visualizer */}
+                       <div className="space-y-6">
+                          <div className="relative h-24 bg-white/[0.03] rounded-xl overflow-hidden border border-white/5">
+                             {[...Array(20)].map((_, i) => (
+                               <motion.div
+                                 key={i}
+                                 className="absolute bottom-0 bg-gold-500/30"
+                                 style={{ 
+                                   left: `${i * 5}%`, 
+                                   width: '4%', 
+                                   height: '40%' 
+                                 }}
+                                 animate={{ 
+                                   height: [`${20 + Math.random() * 60}%`, `${10 + Math.random() * 80}%`, `${30 + Math.random() * 50}%`] 
+                                 }}
+                                 transition={{ 
+                                   duration: 2 + Math.random(), 
+                                   repeat: Infinity, 
+                                   ease: "easeInOut" 
+                                 }}
+                               />
+                             ))}
+                             <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="text-[10px] uppercase tracking-[0.4em] text-gold-500/50 font-bold">Synthesized stream 01</span>
+                             </div>
+                          </div>
+
+                          <div className="relative h-24 bg-white/[0.03] rounded-xl overflow-hidden border border-white/5">
+                             {[...Array(20)].map((_, i) => (
+                               <motion.div
+                                 key={i}
+                                 className="absolute bottom-0 bg-emerald-500/30"
+                                 style={{ 
+                                   left: `${i * 5}%`, 
+                                   width: '4%', 
+                                   height: '40%' 
+                                 }}
+                                 animate={{ 
+                                   height: [`${10 + Math.random() * 80}%`, `${30 + Math.random() * 50}%`, `${20 + Math.random() * 60}%`] 
+                                 }}
+                                 transition={{ 
+                                   duration: 2.5 + Math.random(), 
+                                   repeat: Infinity, 
+                                   ease: "easeInOut" 
+                                 }}
+                               />
+                             ))}
+                             <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="text-[10px] uppercase tracking-[0.4em] text-emerald-500/50 font-bold">Synthesized stream 02</span>
+                             </div>
+                          </div>
+                       </div>
+
+                       <div className="mt-8 flex justify-between items-center bg-white/5 p-4 rounded-xl border border-white/5">
+                          <div className="flex gap-4">
+                             <div className="flex items-center gap-2">
+                                <div className="w-2 h-2 bg-gold-500 rounded-full" />
+                                <span className="text-[10px] text-slate-500 uppercase font-bold">Persona Active</span>
+                             </div>
+                             <div className="flex items-center gap-2">
+                                <div className="w-2 h-2 bg-emerald-500 rounded-full" />
+                                <span className="text-[10px] text-slate-500 uppercase font-bold">ML Core Sync</span>
+                             </div>
+                          </div>
+                          <Activity className="w-4 h-4 text-slate-500 animate-pulse" />
+                       </div>
+                    </div>
+                 </div>
+              </div>
+            </div>
+          </div>
         </motion.div>
+
+        {/* Approach Cards */}
+        <div className="grid md:grid-cols-2 gap-8">
+           <motion.div
+              className="glass p-12 rounded-[2.5rem] border-white/5 overflow-hidden group"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+           >
+              <div className="relative z-10">
+                 <Lock className="w-12 h-12 text-slate-600 mb-8" />
+                 <h4 className="text-3xl font-bold text-white mb-6">Passive Defense</h4>
+                 <p className="text-slate-500 mb-10 leading-relaxed font-light">Traditional tools attempt to hide through blocking. This creates suspicious gaps and often fails to bypass modern fingerprinting techniques.</p>
+                 <div className="space-y-4">
+                    {["Ineffective Canvas Blocking", "Suspicious Data Gaps", "Broken Functionality"].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3 text-sm text-slate-600 border-b border-white/5 pb-4">
+                        <div className="w-1 h-1 bg-slate-600 rounded-full" />
+                        {item}
+                      </div>
+                    ))}
+                 </div>
+              </div>
+           </motion.div>
+
+           <motion.div
+              className="premium-border p-12 rounded-[2.5rem] overflow-hidden group"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+           >
+              <div className="relative z-10">
+                 <Zap className="w-12 h-12 text-gold-500 mb-8" />
+                 <h4 className="text-3xl font-bold text-white mb-6">Active Dissolution</h4>
+                 <p className="text-slate-400 mb-10 leading-relaxed font-light italic font-serif">NoiseraX methodology: Flooding the stream with legitimate noise, making the signal-to-noise ratio mathematically impossible to decipher.</p>
+                 <div className="space-y-4">
+                    {["Total Identity Cloaking", "Seamless Web Experience", "Adaptive Behavioral Flow"].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3 text-sm text-gold-500 border-b border-white/10 pb-4">
+                        <CheckCircle className="w-4 h-4" />
+                        {item}
+                      </div>
+                    ))}
+                 </div>
+              </div>
+           </motion.div>
+        </div>
       </div>
     </section>
   );
 };
 
-export default SolutionSection;
+export default SolutionSection;

@@ -1,178 +1,134 @@
 import { motion } from 'framer-motion';
-import { Eye, Clock, MousePointer, Navigation, Target, TrendingUp, AlertTriangle } from 'lucide-react';
+import { Eye, Clock, MousePointer, Navigation, Target, TrendingUp, AlertTriangle, Fingerprint, Search, ShieldAlert } from 'lucide-react';
 
 const ProblemSection = () => {
   const trackingMethods = [
     {
       icon: Clock,
-      title: "Time on Page",
-      description: "How long you spend reading, scrolling, or engaging with content reveals your interests and attention patterns.",
-      example: "Spending 5+ minutes on tech articles signals you're likely a developer or tech enthusiast."
+      title: "Temporal Analysis",
+      description: "Precision tracking of engagement intervals. Your attention span on specific metadata reveals more than your clicks ever could.",
     },
     {
       icon: MousePointer,
-      title: "Scroll Behavior", 
-      description: "Your scrolling speed, pauses, and backtracking patterns create a unique behavioral fingerprint.",
-      example: "Fast scrolling suggests skimming, while slow scrolling with pauses indicates deep reading."
+      title: "Bio-Kinetic Printing", 
+      description: "Your velocity, acceleration, and scroll-pauses create a behavioral signature as unique as a physical fingerprint.",
     },
     {
-      icon: Target,
-      title: "Click Patterns",
-      description: "What you click, when you click, and how you navigate through pages builds a detailed interaction map.",
-      example: "Clicking on luxury product ads repeatedly suggests high disposable income."
+      icon: Fingerprint,
+      title: "Identity Synthesis",
+      description: "Amalgamating disparate data points—from device resolution to battery level—to create a persistent shadow profile.",
     },
     {
       icon: Navigation,
-      title: "Navigation Paths",
-      description: "The sequence of pages you visit and how you move between them reveals your decision-making process.",
-      example: "Visiting price comparison sites before purchases indicates you're a careful, budget-conscious shopper."
-    }
-  ];
-
-  const profileTypes = [
-    {
-      title: "Interest Profiling",
-      description: "Your browsing creates detailed maps of your hobbies, preferences, and curiosities",
-      tags: ["Sports Fan", "Tech Enthusiast", "Fashion Lover", "Foodie", "Traveler"],
-      color: "from-blue-500 to-cyan-500"
-    },
-    {
-      title: "Income Estimation", 
-      description: "Sites you visit and products you view help estimate your purchasing power",
-      tags: ["Budget Conscious", "Mid-Range", "Premium", "Luxury", "Enterprise"],
-      color: "from-green-500 to-emerald-500"
-    },
-    {
-      title: "Intent Prediction",
-      description: "Your behavior patterns predict what you're likely to buy or do next",
-      tags: ["Ready to Buy", "Just Browsing", "Researching", "Comparing", "Decided"],
-      color: "from-purple-500 to-pink-500"
+      title: "Cognitive Mapping",
+      description: "Analyzing the sequence of your digital traversal to predict future intent with uncanny mathematical accuracy.",
     }
   ];
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-800/30">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
-              The Problem:
-            </span>
-            <br />
-            <span className="text-white">
-              You're Being Profiled Every Second
-            </span>
-          </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Every website you visit is quietly collecting behavioral data to build an incredibly detailed profile of who you are, 
-            what you want, and how much you're worth. Here's exactly how they do it:
-          </p>
-        </motion.div>
+    <section className="py-32 px-4 sm:px-6 lg:px-8 bg-onyx relative overflow-hidden" id="problem">
+      {/* Background Effect */}
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_30%,rgba(220,38,38,0.1),transparent_50%)]" />
+      </div>
 
-        {/* Tracking Methods Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row gap-12 md:items-end mb-24 border-b border-white/5 pb-16">
+          <motion.div
+            className="flex-1"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center gap-4 mb-8">
+               <ShieldAlert className="w-6 h-6 text-red-500" />
+               <span className="text-xs font-bold uppercase tracking-[0.4em] text-red-500">The Modern Crisis</span>
+            </div>
+            <h2 className="text-5xl md:text-8xl font-bold text-white leading-tight tracking-tighter">
+              YOU ARE THE <br /> <span className="italic font-serif text-red-500/80">PRODUCT.</span>
+            </h2>
+          </motion.div>
+          
+          <motion.div
+            className="md:w-1/3"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-xl text-slate-500 leading-relaxed font-light">
+              Beyond cookies and trackers lies a deeper surveillance. Modern algorithms don't just see what you do—they understand who you are.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* The Reveal Grid */}
+        <div className="grid md:grid-cols-2 gap-1 px-1 bg-white/5 border border-white/5 rounded-3xl overflow-hidden mb-32">
           {trackingMethods.map((method, index) => (
             <motion.div
               key={method.title}
-              className="bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:border-slate-600/50 transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="bg-onyx p-12 hover:bg-white/[0.02] transition-colors group"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ y: -5 }}
             >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <method.icon className="w-6 h-6 text-red-400" />
+              <div className="flex flex-col h-full">
+                <div className="text-red-500/30 group-hover:text-red-500 transition-colors mb-8">
+                   <method.icon className="w-10 h-10" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-white mb-3">{method.title}</h3>
-                  <p className="text-slate-300 mb-4 leading-relaxed">{method.description}</p>
-                  <div className="bg-slate-800/50 border border-slate-700/30 rounded-lg p-3">
-                    <p className="text-sm text-slate-400">
-                      <span className="text-orange-400 font-medium">Example:</span> {method.example}
-                    </p>
-                  </div>
+                <h3 className="text-2xl font-bold text-white mb-6 uppercase tracking-widest">{method.title}</h3>
+                <p className="text-slate-500 group-hover:text-slate-300 transition-colors leading-relaxed font-light">
+                  {method.description}
+                </p>
+                <div className="mt-8 pt-8 border-t border-white/5 opacity-0 group-hover:opacity-100 transition-opacity">
+                   <span className="text-[10px] text-red-500 font-bold uppercase tracking-[0.3em]">Surveillance Node Active</span>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Profile Building Visualization */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-3xl font-bold text-white mb-6">
-            This Data Builds Detailed Behavioral Profiles
-          </h3>
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto mb-12">
-            Companies combine all this behavioral data to create comprehensive profiles that categorize you 
-            across multiple dimensions, making you incredibly predictable and targetable.
-          </p>
-        </motion.div>
-
-        {/* Profile Types */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {profileTypes.map((profile, index) => (
-            <motion.div
-              key={profile.title}
-              className="bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:border-slate-600/50 transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5 }}
-            >
-              <div className={`w-full h-2 bg-gradient-to-r ${profile.color} rounded-full mb-6`} />
-              <h4 className="text-xl font-semibold text-white mb-4">{profile.title}</h4>
-              <p className="text-slate-300 mb-6 leading-relaxed">{profile.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {profile.tags.map((tag, tagIndex) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 bg-slate-800/50 border border-slate-700/30 rounded-full text-sm text-slate-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+        {/* The Impact: Editorial Layout */}
+        <div className="grid lg:grid-cols-3 gap-12">
+          <div className="lg:col-span-1">
+             <div className="sticky top-32">
+               <h3 className="text-4xl font-bold text-white mb-8 leading-tight">
+                 The Result: <br /> <span className="text-gradient-gold">Mathematical Predictability.</span>
+               </h3>
+               <p className="text-slate-400 font-light leading-relaxed">
+                 By aggregating these micro-interactions, entities build a digital twin of your consciousness. They know your next move before you do.
+               </p>
+             </div>
+          </div>
+          
+          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-8">
+            {[
+              { label: "Propensity Scores", val: "94.2%", desc: "Likelihood of next purchase" },
+              { label: "Behavioral Sync", val: "89.1%", desc: "Identity verification confidence" },
+              { label: "Intent Velocity", val: "High", desc: "Urgency of immediate conversion" },
+              { label: "Profile Wealth", val: "Tier 1", desc: "Purchasing power estimation" }
+            ].map((stat, i) => (
+              <motion.div 
+                key={i}
+                className="p-10 border border-white/10 rounded-3xl bg-white/[0.03] hover:border-red-500/20 transition-colors"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 mb-4">{stat.label}</div>
+                <div className="text-4xl font-bold text-white mb-4 italic font-serif">{stat.val}</div>
+                <div className="text-xs text-slate-500 font-light tracking-tight">{stat.desc}</div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-
-        {/* The Reality Check */}
-        <motion.div
-          className="bg-gradient-to-r from-red-900/20 to-orange-900/20 border border-red-500/20 rounded-2xl p-8 text-center"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <AlertTriangle className="w-12 h-12 text-red-400 mx-auto mb-4" />
-          <h3 className="text-2xl font-bold text-white mb-4">
-            Blocking Trackers Is No Longer Enough
-          </h3>
-          <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Traditional privacy tools focus on blocking trackers, but modern surveillance has evolved beyond simple cookies. 
-            Behavioral fingerprinting, canvas tracking, and advanced analytics can profile you even with ad blockers enabled. 
-            <span className="text-red-400 font-medium"> The data that gets through is still enough to build detailed profiles.</span>
-          </p>
-        </motion.div>
       </div>
     </section>
   );
 };
 
-export default ProblemSection;
+export default ProblemSection;
