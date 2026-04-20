@@ -140,6 +140,7 @@ const FeaturesSection = () => {
               className="btn-gold"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => window.location.hash = '#contact'}
             >
               Deploy NoiseraX
               <ArrowRight className="w-4 h-4 ml-2" />

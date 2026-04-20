@@ -4,6 +4,7 @@ import HeroSection from './components/HeroSection';
 import ProblemSection from './components/ProblemSection';
 import SolutionSection from './components/SolutionSection';
 import FeaturesSection from './components/FeaturesSection';
+import ContactSection from './components/ContactSection';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <ProblemSection />
       <SolutionSection />
       <FeaturesSection />
+      <ContactSection />
     </Layout>
   );
 }

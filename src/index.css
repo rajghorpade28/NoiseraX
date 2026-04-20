@@ -148,6 +148,15 @@
     height: 1px;
     background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.3), transparent);
   }
+
+  /* ───── Luxury Form Elements ───── */
+  .luxury-input {
+    @apply w-full px-6 py-4 rounded-2xl bg-white border border-black/5 text-onyx-900 placeholder:text-slate-300 font-light transition-all outline-none;
+  }
+  .luxury-input:focus {
+    @apply border-gold-400;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.08);
+  }
 }
 
 @keyframes pulse {

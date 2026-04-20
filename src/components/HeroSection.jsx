@@ -53,6 +53,7 @@ const HeroSection = () => {
                 className="btn-gold"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
+                onClick={() => window.location.hash = '#contact'}
               >
                 Initialize Core
                 <ArrowRight className="w-4 h-4" />
