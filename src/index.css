@@ -17,77 +17,205 @@
     scroll-behavior: smooth;
     cursor: default;
   }
-  
+
   body {
-    @apply bg-onyx text-slate-100 selection:bg-gold-500/30 selection:text-gold-100;
+    @apply bg-onyx text-slate-100;
     font-family: 'Outfit', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    background-color: #0c0c0f;
   }
 
-  h1, h2, h3, h4 {
-    @apply font-serif;
+  ::selection {
+    background: rgba(212, 175, 55, 0.35);
+    color: #fff;
   }
 }
 
 @layer components {
+
+  /* ───── Glass Surfaces ───── */
   .glass {
-    @apply backdrop-blur-md bg-white/5 border border-white/10;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
-  
+
   .glass-dark {
-    @apply backdrop-blur-xl bg-onyx/80 border border-white/5;
+    backdrop-filter: blur(24px);
+    background: rgba(12, 12, 15, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
+  /* ───── Gold Gradient Text ───── */
   .text-gradient-gold {
-    @apply bg-gradient-to-r from-gold-300 via-gold-500 to-gold-600 bg-clip-text text-transparent;
+    background: linear-gradient(135deg, #ffe878 0%, #D4AF37 50%, #c49a20 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
+  /* ───── Premium Card Border ───── */
   .premium-border {
-    @apply relative before:absolute before:inset-0 before:p-[1px] before:bg-gradient-to-br before:from-white/10 before:via-white/5 before:to-transparent before:rounded-[inherit] before:-z-10 bg-onyx/20 backdrop-blur-sm border border-white/5;
-  }
-
-  .grid-blueprint {
-    background-image: 
-      linear-gradient(to right, rgba(212, 175, 55, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(212, 175, 55, 0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
-
-  .grid-dots {
-    background-image: radial-gradient(rgba(212, 175, 55, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
-  }
-
-  .grain {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
     position: relative;
   }
-  
-  .grain::before {
-    content: "";
-    position: fixed;
-    top: -100%;
-    left: -100%;
-    width: 300%;
-    height: 300%;
-    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-    opacity: 0.03;
+
+  .premium-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(212,175,55,0.3), rgba(255,255,255,0.05), rgba(16,185,129,0.1));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
     pointer-events: none;
-    z-index: 50;
-    animation: noise 8s steps(10) infinite;
+  }
+
+  /* ───── Blueprint Grid ───── */
+  .grid-blueprint {
+    background-image:
+      linear-gradient(to right, rgba(212, 175, 55, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(212, 175, 55, 0.08) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* ───── Dot Matrix ───── */
+  .grid-dots {
+    background-image: radial-gradient(rgba(212, 175, 55, 0.18) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  /* ───── Gold Button ───── */
+  .btn-gold {
+    @apply inline-flex items-center gap-3 px-10 py-4 rounded-full font-bold text-sm tracking-wide transition-all duration-300;
+    background: linear-gradient(135deg, #ffe878, #D4AF37 60%, #c49a20);
+    color: #0c0c0f;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .btn-gold:hover {
+    box-shadow: 0 0 60px rgba(212, 175, 55, 0.6), 0 8px 30px rgba(0,0,0,0.4);
+    transform: translateY(-1px) scale(1.02);
+  }
+
+  /* ───── Ghost Button ───── */
+  .btn-ghost {
+    @apply inline-flex items-center gap-3 px-10 py-4 rounded-full font-bold text-sm tracking-wide text-white transition-all duration-300;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+  }
+  .btn-ghost:hover {
+    border-color: rgba(212, 175, 55, 0.5);
+    background: rgba(212, 175, 55, 0.08);
+    transform: translateY(-1px);
+  }
+
+  /* ───── Emerald Button ───── */
+  .btn-emerald {
+    @apply inline-flex items-center gap-3 px-10 py-4 rounded-full font-bold text-sm tracking-wide text-white transition-all duration-300;
+    background: linear-gradient(135deg, #34d399, #10b981 50%, #059669);
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.35);
+  }
+  .btn-emerald:hover {
+    box-shadow: 0 0 60px rgba(16, 185, 129, 0.55);
+    transform: translateY(-1px) scale(1.02);
+  }
+
+  /* ───── Status Badge ───── */
+  .badge-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #34d399;
+  }
+  .badge-live::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 8px #10b981;
+    animation: pulse 2s infinite;
+  }
+
+  /* ───── Tag / Chip ───── */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    transition: all 0.3s ease;
+  }
+
+  /* ───── Section divider line ───── */
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #D4AF37, transparent);
+    opacity: 0.3;
+  }
+
+  /* ───── Grain texture overlay ───── */
+  .grain::after {
+    content: '';
+    position: fixed;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    pointer-events: none;
+    z-index: 9999;
+    animation: grain-shift 8s steps(10) infinite;
   }
 }
 
-@keyframes noise {
-  0%, 100% { transform:translate(0, 0) }
-  10% { transform:translate(-5%, -10%) }
-  20% { transform:translate(-15%, 5%) }
-  30% { transform:translate(7%, -25%) }
-  40% { transform:translate(-5%, 25%) }
-  50% { transform:translate(-15%, 10%) }
-  60% { transform:translate(15%, 0%) }
-  70% { transform:translate(0%, 15%) }
-  80% { transform:translate(3%, 35%) }
-  90% { transform:translate(-10%, 10%) }
-}
+/* ───── Gold Shimmer Keyframes ───── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes grain-shift {
+  0%, 100% { transform: translate(0, 0) }
+  10% { transform: translate(-3%, -5%) }
+  20% { transform: translate(-8%, 3%) }
+  30% { transform: translate(4%, -12%) }
+  40% { transform: translate(-3%, 10%) }
+  50% { transform: translate(-8%, 5%) }
+  60% { transform: translate(8%, 0%) }
+  70% { transform: translate(0%, 8%) }
+  80% { transform: translate(2%, 15%) }
+  90% { transform: translate(-5%, 5%) }
+}
+
+/* ───── Custom Scrollbar ───── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0c0c0f; }
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.25);
+  border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.5);
+}

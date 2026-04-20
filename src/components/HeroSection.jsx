@@ -1,170 +1,172 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Play, Shield, Globe, Zap, Crown, Fingerprint, Lock, ShieldCheck, Box } from 'lucide-react';
+import { ArrowRight, Play, Globe, Zap, Crown, Lock, ShieldCheck, Box } from 'lucide-react';
 
 const HeroSection = () => {
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const y1 = useTransform(scrollY, [0, 500], [0, 120]);
+  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-onyx pt-32 pb-20" id="hero">
-      {/* Grid Blueprint Background */}
-      <div className="absolute inset-0 z-0 grid-blueprint opacity-20 pointer-events-none" />
-      
-      {/* Animated Geometric Glows */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <motion.div 
-          className="absolute top-[10%] left-[5%] w-[40vw] h-[40vw] bg-gold-500/10 rounded-full blur-[120px]"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute bottom-[10%] right-[5%] w-[35vw] h-[35vw] bg-emerald-500/5 rounded-full blur-[120px]"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.5, 0.2],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        />
-      </div>
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-36 pb-24"
+    >
+      {/* ── Radial Gold Burst (hero center) ── */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse 80% 60% at 30% 40%, rgba(212,175,55,0.14) 0%, transparent 60%),' +
+            'radial-gradient(ellipse 50% 40% at 75% 70%, rgba(16,185,129,0.1) 0%, transparent 60%)',
+        }}
+      />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 auto-rows-auto">
-          
-          {/* Main Hero Card - Bento Style */}
-          <motion.div 
-            className="lg:col-span-8 premium-border p-10 md:p-16 rounded-[3rem] items-start flex flex-col justify-center overflow-hidden"
-            initial={{ opacity: 0, x: -50 }}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
+
+          {/* ── MAIN HERO CARD ── */}
+          <motion.div
+            className="lg:col-span-8 premium-border rounded-[3rem] p-10 md:p-16 flex flex-col justify-center overflow-hidden"
+            initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, cubicBezier: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="flex items-center gap-4 mb-10">
-               <Crown className="w-5 h-5 text-gold-500" />
-               <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-gold-500">Security Architecture 1.0</span>
+            {/* Inner glow */}
+            <div
+              className="absolute -top-20 -left-20 w-80 h-80 rounded-full pointer-events-none"
+              style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%)' }}
+            />
+
+            {/* Badge */}
+            <div className="flex items-center gap-3 mb-10">
+              <Crown className="w-4 h-4" style={{ color: '#D4AF37' }} />
+              <span
+                className="text-[10px] font-bold uppercase tracking-[0.5em]"
+                style={{ color: '#D4AF37' }}
+              >
+                Security Architecture 1.0
+              </span>
             </div>
-            
-            <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-bold mb-10 leading-[0.85] tracking-tighter text-white">
-              REDEFINE <br /> <span className="italic font-serif text-gradient-gold">DISSOLUTION.</span>
+
+            {/* Heading */}
+            <h1 className="font-bold mb-8 leading-[0.88] tracking-tighter text-white"
+              style={{ fontSize: 'clamp(3.5rem, 9vw, 10rem)' }}>
+              REDEFINE<br />
+              <span className="text-gradient-gold italic font-serif">DISSOLUTION.</span>
             </h1>
-            
-            <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mb-12 font-light leading-relaxed">
-              NoiseraX engineers a sanctuary for your digital signature. Beyond simple masking, our protocol actively corrupts the stream of behavioral metadata.
+
+            <p className="text-xl text-slate-400 max-w-2xl mb-12 font-light leading-relaxed">
+              NoiseraX engineers a sanctuary for your digital signature. Beyond simple masking,
+              our protocol actively corrupts the stream of behavioral metadata.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-6">
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-5">
               <motion.button
-                className="px-10 py-5 bg-white text-onyx rounded-full font-bold text-lg flex items-center justify-center gap-3 hover:bg-gold-500 hover:text-white transition-all shadow-xl shadow-white/5"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                className="btn-gold"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
               >
-                Initalize Core 
+                Initialize Core
                 <ArrowRight className="w-5 h-5" />
               </motion.button>
-              
-              <button className="px-10 py-5 glass rounded-full font-bold text-lg text-white hover:bg-white/5 transition-all flex items-center gap-3">
-                <Play className="w-5 h-5 text-gold-500" />
+
+              <motion.button
+                className="btn-ghost"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <Play className="w-4 h-4" style={{ color: '#D4AF37' }} />
                 Manifesto Film
-              </button>
+              </motion.button>
             </div>
           </motion.div>
 
-          {/* Right Column Bento Items */}
-          <div className="lg:col-span-4 grid gap-6 lg:gap-8">
-            
-            {/* Trust Matrix Card */}
-            <motion.div 
-              className="premium-border p-10 rounded-[2.5rem] flex flex-col justify-between h-full"
-              initial={{ opacity: 0, y: 30 }}
+          {/* ── RIGHT BENTO COLUMN ── */}
+          <div className="lg:col-span-4 flex flex-col gap-6">
+            {/* Sovereign Data card */}
+            <motion.div
+              className="premium-border rounded-[2.5rem] p-10 flex flex-col justify-between flex-1"
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              <div>
-                <Lock className="w-8 h-8 text-gold-500/50 mb-8" />
-                <h3 className="text-2xl font-bold text-white mb-4 italic font-serif">Sovereign Data</h3>
-                <p className="text-sm text-slate-500 font-light leading-relaxed">Everything processed locally. Zero cloud footprint. Mathematical certainty in absolute privacy.</p>
-              </div>
-              <div className="mt-10 flex gap-2">
-                 <div className="h-1 flex-1 bg-gold-500/20 rounded-full overflow-hidden">
-                    <motion.div className="h-full bg-gold-500" animate={{ x: ['-100%', '100%'] }} transition={{ duration: 3, repeat: Infinity, ease: "linear" }} />
-                 </div>
-                 <div className="h-1 w-1/4 bg-white/5 rounded-full" />
+              <Lock className="w-9 h-9 mb-8" style={{ color: 'rgba(212,175,55,0.6)' }} />
+              <h3 className="text-2xl font-bold text-white mb-3 italic font-serif">Sovereign Data</h3>
+              <p className="text-sm text-slate-500 font-light leading-relaxed mb-8">
+                Everything processed locally. Zero cloud footprint.
+              </p>
+              {/* Animated progress bar */}
+              <div className="h-1 w-full rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
+                <motion.div
+                  className="h-full rounded-full"
+                  style={{ background: 'linear-gradient(90deg, #D4AF37, #ffe878)', width: '100%' }}
+                  animate={{ x: ['-100%', '100%'] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+                />
               </div>
             </motion.div>
 
-            {/* Network Analytics Card */}
-            <motion.div 
-              className="premium-border p-10 rounded-[2.5rem] flex items-center gap-6"
-              initial={{ opacity: 0, y: 30 }}
+            {/* System Armed card */}
+            <motion.div
+              className="premium-border rounded-[2.5rem] p-8 flex items-center gap-5"
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
+              transition={{ duration: 1, delay: 0.35 }}
             >
-               <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 flex-shrink-0">
-                  <ShieldCheck className="w-8 h-8" />
-               </div>
-               <div>
-                  <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 mb-1">Status</div>
-                  <div className="text-xl font-bold text-white tracking-tight">System Armed</div>
-               </div>
+              <div
+                className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
+                style={{ background: 'rgba(16,185,129,0.15)', border: '1px solid rgba(16,185,129,0.3)' }}
+              >
+                <ShieldCheck className="w-7 h-7" style={{ color: '#10b981' }} />
+              </div>
+              <div>
+                <div className="badge-live">System Live</div>
+                <div className="text-xl font-bold text-white mt-2 tracking-tight">System Armed</div>
+              </div>
             </motion.div>
           </div>
 
-          {/* Bottom Row Bento Items */}
-          <motion.div 
-            className="lg:col-span-4 premium-border p-8 rounded-[2.5rem] sm:flex items-center gap-6 hidden"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-             <div className="w-12 h-12 glass rounded-xl flex items-center justify-center text-gold-500">
-                <Globe className="w-6 h-6" />
-             </div>
-             <div className="text-xs font-bold text-slate-300 uppercase tracking-widest leading-loose">Global Behavioral Synthesis Enabled</div>
-          </motion.div>
-
-          <motion.div 
-            className="lg:col-span-4 premium-border p-8 rounded-[2.5rem] flex items-center gap-6"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-             <div className="w-12 h-12 glass rounded-xl flex items-center justify-center text-gold-500">
-                <Box className="w-6 h-6" />
-             </div>
-             <div className="text-xs font-bold text-slate-300 uppercase tracking-widest leading-loose">Modular Privacy Protocol</div>
-          </motion.div>
-
-          <motion.div 
-            className="lg:col-span-4 premium-border p-8 rounded-[2.5rem] flex items-center gap-6"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.7 }}
-            viewport={{ once: true }}
-          >
-             <div className="w-12 h-12 glass rounded-xl flex items-center justify-center text-gold-500">
-                <Zap className="w-6 h-6" />
-             </div>
-             <div className="text-xs font-bold text-slate-300 uppercase tracking-widest leading-loose">Zero Latency Neural Injection</div>
-          </motion.div>
-
+          {/* ── BOTTOM ROW ── */}
+          {[
+            { icon: Globe, label: 'Global Behavioral Synthesis' },
+            { icon: Box,   label: 'Modular Privacy Protocol'  },
+            { icon: Zap,   label: 'Zero Latency Neural Core'  },
+          ].map(({ icon: Icon, label }, i) => (
+            <motion.div
+              key={label}
+              className="lg:col-span-4 premium-border rounded-[2rem] p-7 flex items-center gap-5"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 * i }}
+              viewport={{ once: true }}
+            >
+              <div
+                className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                style={{ background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.25)' }}
+              >
+                <Icon className="w-5 h-5" style={{ color: '#D4AF37' }} />
+              </div>
+              <div className="text-[11px] font-bold text-slate-300 uppercase tracking-widest leading-snug">
+                {label}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
 
-      {/* Grid-Aligned Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block">
-        <div className="flex flex-col items-center gap-4">
-           <span className="text-[10px] uppercase tracking-[0.5em] text-slate-600 font-bold rotate-90 origin-left translate-x-3">Scroll</span>
-           <div className="w-px h-16 bg-white/10 relative">
-              <motion.div 
-                className="absolute top-0 left-[-1.5px] w-1 h-3 bg-gold-500 rounded-full"
-                animate={{ top: ['0%', '100%', '0%'] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
-           </div>
+      {/* ── Scroll Indicator ── */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2">
+        <span className="text-[9px] uppercase tracking-[0.5em] font-bold" style={{ color: 'rgba(255,255,255,0.2)' }}>
+          Scroll
+        </span>
+        <div className="w-px h-14 relative overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
+          <motion.div
+            className="absolute left-0 w-full rounded-full"
+            style={{ height: '40%', background: 'linear-gradient(to bottom, #D4AF37, transparent)' }}
+            animate={{ top: ['0%', '120%'] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+          />
         </div>
       </div>
     </section>
